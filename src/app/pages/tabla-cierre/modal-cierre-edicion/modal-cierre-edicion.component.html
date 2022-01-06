@@ -1,0 +1,203 @@
+<div class="card">
+  <div class="card-header">Editar</div>
+  <div class="card-body">
+    <form [formGroup]="form">
+      <div class="campo1">
+        <mat-form-field appearance="fill">
+          <mat-label>Asiento</mat-label>
+          <input
+            matInput
+            disabled="true"
+            value="{{ datosNuevos[0].cl_asien }}"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="campo2">
+        <mat-form-field appearance="fill">
+          <mat-label>Descripcion </mat-label>
+          <input matInput class="text" formControlName="desc_cierre" />
+        </mat-form-field>
+        <div *ngIf="descripcion" class="valida-campo">
+          <div class="texto-valida">
+            <i class="fas fa-exclamation-triangle" style="color: red">
+              <span style="color: red; font-size: 12px"> Descripcion</span>
+            </i>
+          </div>
+        </div>
+      </div>
+
+      <!-- inicio del formulario detalle en el modal editar-->
+      <!-- tabla -->
+      <div>
+        <div>
+          <h4 class="title">Detalle de las Cuentas a Saldar o Transferir</h4>
+        </div>
+        <mat-table
+          class="table-responsive"
+          [dataSource]="dataSourceDet"
+          matSort
+        >
+          <ng-container matColumnDef="dl_secue">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <h3>Secuencia</h3>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row"
+              ><span class="mobile-label"></span> {{ row[0] }}
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="dl_tipope">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <h3>Operación</h3>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row"
+              ><span class="mobile-label"></span>
+              <!-- <input matInput type="text"   value="{{row[1]}}">  </mat-cell> -->
+              {{ row[1] }}</mat-cell
+            >
+          </ng-container>
+
+          <ng-container matColumnDef="dl_ctasal">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <h3>Cuenta A Saldar</h3>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row"
+              ><span class="mobile-label"></span>
+              <!-- <input matInput type="text"   value="{{row[2]}}"> </mat-cell> -->
+              {{ row[2] }}
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="dl_ctatra">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <h3>Cuenta A Transferir</h3>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row"
+              ><span class="mobile-label"></span>
+              <!-- <input matInput type="text"   value="{{ row[3] }}"></mat-cell> -->
+              {{ row[3] }}</mat-cell
+            >
+          </ng-container>
+
+          <ng-container matColumnDef="acciones">
+            <mat-header-cell *matHeaderCellDef>
+              <h3>Acciones</h3>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <span class="mobile-label"></span>
+
+              <button
+                mat-button
+                (click)="obtenerTabDetalle('0001', row[4], row[0])"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+
+              <button
+                mat-button
+                style="color: rgb(255, 38, 0)"
+                (click)="eliminar(row)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">
+              No se encontraron resultados para ""
+            </td>
+          </tr>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+        </mat-table>
+      </div>
+      <!-- Fin formulario-->
+
+            <!-- <div class="btnNuevo">
+        <button type="submit" class=" btn btn-success">Nuevo</button>
+        </div> -->
+
+      <!-- Boton de Nuevo Registro en el modal de Editar-->
+      <div class="btnNuevo">
+        <button
+          mat-fab
+          style="
+            float: right;
+            margin-right: -20px;
+            background-color: dodgerblue;
+          "
+          (click)="irRegistrar()"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+
+      <div class="secu">
+        <mat-form-field appearance="fill">
+          <mat-label>Secuencia </mat-label>
+          <input matInput   maxlength="5" formControlName="detaSecue" />
+        </mat-form-field>
+        <div id="opera">
+          <mat-form-field appearance="fill">
+            <mat-label>Tipo De Operacion </mat-label>
+            <mat-select [(value)]="toper" formControlName="detaTope">
+              <mat-option value="S">Saldar</mat-option>
+              <mat-option value="T">Transferir</mat-option>
+              <mat-option value="X">Omitir</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="saldar">
+        <mat-form-field appearance="fill">
+          <mat-label>Cuenta a saldar </mat-label>
+          <input matInput value="{{ csald }}" formControlName="detaCsald" />
+        </mat-form-field>
+        <div id="impu">
+      <mat-form-field appearance="fill">
+        <mat-label>Impuesto a la Renta </mat-label>
+          <input matInput >
+      </mat-form-field>
+      </div>
+      </div>
+
+      <div class="trans">
+        <mat-form-field appearance="fill">
+          <mat-label>Cuenta a transferir Saldo </mat-label>
+          <input matInput value="{{ ctrans }}" formControlName="detaCTra" />
+        </mat-form-field>
+        <div id="ejer">
+          <mat-form-field appearance="fill">
+            <mat-label>Resultado del Ejercicio </mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+
+    <div class="dos">
+      <ul>
+        <p><strong>Creación:</strong></p>
+        <li>Usuario: {{ datosNuevos[0].cl_usuacre }}</li>
+        <li>Fecha: {{ datosNuevos[0].cl_feccrea | date: "d/M/yyyy" }}</li>
+        <li>Hora: {{ datosNuevos[0].cl_hracrea }}</li>
+      </ul>
+      <ul>
+        <p><strong>Actualización:</strong></p>
+        <li>Usuario:{{ datosNuevos[0].cl_usract }}</li>
+        <li>Fecha: {{ datosNuevos[0].cl_fecact | date: "d/M/yyyy" }}</li>
+        <li>Hora: {{ datosNuevos[0].cl_hraact }}</li>
+      </ul>
+    </div>
+
+    <div class="dos btn">
+      <button type="submit" class="btn btn-success" (click)="operar()">
+        <i class="fas fa-save"></i>
+      </button>
+      <button type="button" class="btn btn-danger" (click)="cerrar()">
+        <i class="fas fa-long-arrow-alt-left"></i>
+      </button>
+    </div>
+  </div>
+</div>

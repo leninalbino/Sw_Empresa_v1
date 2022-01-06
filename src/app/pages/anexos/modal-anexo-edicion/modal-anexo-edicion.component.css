@@ -1,0 +1,165 @@
+
+
+.dos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+     /* background-color: blueviolet;
+     color: brown; */
+}
+.dos .mat-form-field{
+    width: 100%;
+}
+.dos li {
+   list-style:none;
+   all: none;
+}
+
+
+
+
+.Caja1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+    margin-left: 5%;
+    width: 90%;
+    height: 20%;
+    border: solid 0.5px black;
+}
+.Caja1 .mat-form-field {
+    width: 50%;
+    align-items: center;
+   /*border: solid 1px black;*/
+    height: 40px;
+    
+    margin-right: 20%;
+    margin-left: 1%;
+}
+.Caja2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+    margin-left: 5%;
+    width: 90%;
+    height: 20%;
+    border: solid 0.5px black;
+}
+.Caja2 .mat-form-field {
+    width: 50%;
+    align-items: center;
+   /*border: solid 1px black;*/
+    height: 40px;
+    
+    margin-right: 20%;
+    margin-left: 1%;
+}
+.Caja3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+    margin-left: 5%;
+    width: 90%;
+    height: 20%;
+    border: solid 0.5px black;
+}
+.Caja3 .mat-form-field {
+    width: 50%;
+    align-items: center;
+   /*border: solid 1px black;*/
+    height: 40px;
+    
+    margin-right: 20%;
+    margin-left: 1%;
+}
+
+.Caja4 .col-lg-10_select .select{
+    
+    width: 250px;
+    align-items: center; 
+    margin-right: 10%;
+    margin-left: 1%;
+}
+
+.Caja4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+    margin-left: 5%;
+    width: 95%;
+    height: 20%;
+    border: solid 0.5px black;
+}
+
+
+
+.col-lg-10_select{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    
+    /*border: solid 1px black;*/
+}
+
+.col-lg-10_select .descrip{
+    margin-left: 13%;
+    margin-top: 3%;
+    /*border: solid 1px black;*/
+    width: auto;
+    height: 20%;
+    
+}
+
+.col-lg-10_select .mat-form-field{
+    margin-left: 20%;
+    
+}
+.col-lg-10_input{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    
+}
+.col-lg-10_input input{
+    display: flex;
+    flex-direction: row;
+    width: 150px;
+    
+}
+
+.col-lg-10_input .descrip{
+    margin-left: 21%;
+    margin-top: 3%;
+    
+    width: 200px;
+    height: 20%;
+    
+}
+
+.Ubigeo  {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border: solid black; 
+}
+.Ubigeo .descrip{
+    margin-left: 20%;
+    margin-top: 2%;
+    width: auto;
+    height: 20%;
+    border: solid rgb(192, 55, 55);
+
+}
+.Ubigeo .mat-form-field{
+    display: flex; 
+    flex-direction: row;
+    width: 220px;
+    border: solid rgb(96, 55, 192);
+    
+}

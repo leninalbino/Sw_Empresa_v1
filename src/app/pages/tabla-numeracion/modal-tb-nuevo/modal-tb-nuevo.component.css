@@ -1,0 +1,16 @@
+.dos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+     /* background-color: blueviolet;
+     color: brown; */
+}
+.dos .mat-form-field{
+    width: 100%;
+}
+.dos li {
+   list-style:none;
+   all: none;
+}

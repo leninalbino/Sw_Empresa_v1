@@ -1,0 +1,82 @@
+<div class="card">
+    <div class="card-header">
+        <h3>Agregar Caja</h3>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="form" (submit)="operar()" class="formulario">
+            <div class="campo" >
+                    <mat-form-field appearance="fill">
+                        <mat-label>Codigo de caja</mat-label>
+                        <input matInput formControlName="codigo_caja" maxlength="18">
+                    </mat-form-field>
+                    <div *ngIf="codigoCajaValida" class="valida-campo">
+                      <div class="texto-valida">
+                          <i class="fas fa-exclamation-triangle" style="color: red;">
+                            <span style="color: red; font-size: 12px;"> Codigo de caja es requerido.</span>
+                          </i>
+                    </div>
+                    </div>
+            </div>  
+              
+            <div class="campo">
+              <mat-form-field appearance="fill">
+                <mat-label>Descripcion de caja</mat-label>
+                <textarea matInput formControlName="desc_caja" required maxlength="30"></textarea>
+              </mat-form-field>
+              <div *ngIf="descripcionCajaValida" class="valida-campo">
+                <div class="texto-valida">
+                    <i class="fas fa-exclamation-triangle" style="color: red;">
+                      <span style="color: red; font-size: 12px;"> Descripcion de caja es requerido.</span>
+                    </i>
+              </div>
+              </div>
+              
+            </div>
+
+            <div class="campo">
+              <mat-form-field appearance="fill" >
+                <mat-label>Tipo de Moneda</mat-label>
+                <mat-select formControlName="tipo_moneda" [(value)]="seleccionada" >
+                  <mat-option value="one" *ngFor="let op of datosCombo" [value]="op.pkID.tl_clave" >
+                    {{op.pkID.tl_clave}} - {{op.tl_descri}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div *ngIf="tipoMonedaCajaValida" class="valida-campo">
+                <div class="texto-valida">
+                    <i class="fas fa-exclamation-triangle" style="color: red;">
+                      <span style="color: red; font-size: 12px;">Tipo de Moneda es requerido.</span>
+                    </i>
+              </div>
+              </div>
+            </div>
+
+            <div class="campo">
+                <div class="caja-input">
+                  <mat-form-field appearance="fill" class="input-cuenta">
+                    <mat-label>Cuenta contable</mat-label>
+                    <input matInput formControlName="cuenta" [(ngModel)]="cuentaFiltro" maxlength="12" id="texto-cuenta">
+                  </mat-form-field>
+                  <i class="fas fa-search" id="buscar-cuenta" (click)="abrirModalCuenta()"></i>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Descripcion</mat-label>
+                    <input matInput class="descrip-cuenta" disabled>
+                  </mat-form-field>
+                </div>
+                <div *ngIf="cuentaCajaValida" class="valida-campo">
+                  <div class="texto-valida">
+                      <i class="fas fa-exclamation-triangle" style="color: red;">
+                        <span style="color: red; font-size: 12px;"> Cuenta contable es requerido.</span>
+                      </i>
+                </div>
+                </div>
+
+            </div>
+              <div class="dos">
+                    <button class=" btn btn-success"><i class="fas fa-save"></i></button>
+                    <button type="button" class=" btn btn-danger" (click)="cerrar()"><i
+                            class="fas fa-long-arrow-alt-left"></i></button>
+                </div>
+        </form> 
+    </div>
+</div>

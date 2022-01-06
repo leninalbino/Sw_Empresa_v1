@@ -1,0 +1,44 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 17%;
+  }
+
+  .barra-busqueda{
+    float: right;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .nav-busqueda{
+    width: 20%;
+    float: right;
+    margin-right: 2%;
+  }
+
+  .botones{
+    margin: 0 auto;
+  }
+
+  #boton-regresar{
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 2%;
+    margin-top: 2%;
+  }
+
+  #boton-agregar{
+    margin-top: 1.5%;
+  }
+
+  .titulo{
+    margin:1%;
+  }

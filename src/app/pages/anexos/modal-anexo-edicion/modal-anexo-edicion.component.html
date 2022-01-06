@@ -1,0 +1,234 @@
+<div class="card">
+    <div class="card-header">
+        Edicion Anexo
+    </div>
+    <div class="card-body">
+        <div >
+            
+            <form [formGroup]="form" layout="column">
+
+                <div class="Caja1" >
+
+                    <div class="col-lg-10_select" >
+                        <label class="descrip"  for="tipAnex">Tipo de anexo:</label>
+                        <mat-form-field>
+                            <mat-select  id="tipAnex"  formControlName="tipoAnex" >
+                                <mat-option *ngFor="let op of datosCombo" [value]=op.pkID.tl_clave>
+                                    {{op.tl_descri}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-lg-10_select" >
+                        <label class="descrip" for="CodAnex">Codigo de Anexo:</label>
+                    <mat-form-field class="input">
+                        <input  type="text" formControlName="CodAnex"   matInput placeholder="">
+                    </mat-form-field>
+                    </div>
+
+                    <div class="col-lg-10_select" >
+                        <label class="descrip" for="tipAnex">Tipo de persona:</label>
+                    <mat-form-field>
+                        <mat-select  [(value)]="TipoPersona" formControlName="TipoPer" (ngModelChange)="onChange()">
+                            <mat-option  value="J">
+                               J-Juridica
+                            </mat-option>
+                            <mat-option  value="N">
+                                N-Natural
+                             </mat-option>
+                             <mat-option  value="D">
+                                D-No domicilado
+                             </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                     </div>
+
+                     <div class="col-lg-10_input" *ngIf="!Persona" >
+                        <label class="descrip"  >Razon social:</label>
+                    <mat-form-field class="input">
+                        <input  type="text" formControlName="RazSoc"  matInput placeholder="">
+                    </mat-form-field>
+                    </div>
+
+                    <div class="col-lg-10_input" *ngIf="!Persona" style="margin-bottom: 1%;" >
+                        <label class="descrip" >Abreviado:</label>
+                    <mat-form-field class="input">
+                        <input type="text" (value)="anexo.al_razsoc2" formControlName="RazSoc2" matInput placeholder="">
+                    </mat-form-field>
+                    </div>
+                    
+                    <div class="col-lg-10_input" *ngIf="Persona">
+                            <label class="descrip" >Apellido Paterno:</label>
+                        <mat-form-field class="input">
+                            <input  type="text" (value)="anexo.al_apelpat" formControlName="ApePat" matInput placeholder="">
+                        </mat-form-field>
+                    </div>
+                        <div class="col-lg-10_input" *ngIf="Persona"  >
+                            <label class="descrip" >Apellido Materno:</label>
+                        <mat-form-field class="input">
+                            <input type="text" (value)="anexo.al_apelmat" formControlName="ApeMat" matInput placeholder="">
+                        </mat-form-field>
+                        </div>
+                        <div class="col-lg-10_input"  *ngIf="Persona">
+                            <label class="descrip" >Primer nombre:</label>
+                        <mat-form-field class="input">
+                            <input  type="text" (value)="anexo.al_prinom" formControlName="PrimerNom"  matInput placeholder="">
+                        </mat-form-field>
+                        </div>
+                        <div class="col-lg-10_input" *ngIf="Persona" style="margin-bottom: 1%;">
+                            <label class="descrip" >Segundo nombre:</label>
+                        <mat-form-field class="input">
+                            <input type="text" (value)="anexo.al_segnom" formControlName="SegundoNom" matInput placeholder="">
+                        </mat-form-field>
+                        </div>
+
+                    
+                </div>
+                <div class="Caja2" >
+                    <div class="col-lg-10_select" >
+                        <label class="descrip"  for="tipAnex">Estado:</label>
+                    <mat-form-field>
+                            <mat-select  [(value)]="Estado" formControlName="Estado">
+                                <mat-option  value="V">
+                                    V - Vigente
+                                </mat-option>
+                                <mat-option  value="A">
+                                    A - Anulado
+                                </mat-option>
+                            </mat-select>
+                    </mat-form-field>
+                    </div>
+                    <div class="col-lg-10_select" >
+                        <label class="descrip" for="tipAnex">Tipo de documento:</label>
+                    <mat-form-field>
+                        <mat-select  [(value)]="TipDoc" formControlName="TipDoc">
+                            <mat-option *ngFor="let op of datosCombo2" [value]="op.pkID.tl_clave">
+                                {{op.tl_descri}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                     </div>
+                     <div class="col-lg-10_input" style="margin-bottom: 1%;" >
+                        <label class="descrip" for="tipAnex">Nro de documento:</label>
+                    <mat-form-field class="input">
+                        <input  type="text"  [value]="NumDoc" formControlName="NumDoc" matInput placeholder="">
+                    </mat-form-field>
+                    </div>
+                </div>
+                
+                <div class="Caja3" >
+                    <div class="col-lg-10_input" style="margin-bottom: 1%;" >
+                            <label class="descrip" for="tipAnex">Direccion:</label>
+                        <mat-form-field class="input">
+                            <input  type="text" (value)="anexo.al_direcc" formControlName="Direcc" matInput placeholder="">
+                        </mat-form-field>
+                    </div>
+                    <div class="Ubigeo" style="margin-bottom: 1%;" >
+                            <label class="descrip" for="tipAnex">Codigo de ubigeo:</label>
+                        <mat-form-field class="Ubigeo" >
+                            <button  (click)="ayuda()" > Ubigeo  </button>
+                            <input style="border: solid rgb(192, 55, 158);" type="text" (value)="anexo.al_ubigeo" formControlName="Ubigeo" matInput placeholder="">
+                        </mat-form-field>
+                    </div>
+
+
+                    <div class="col-lg-10_select" >
+                        <label class="descrip" for="tipAnex">Nacionalidad:</label>
+                        <mat-form-field>
+                            <mat-select [(value)]="Nacion"  formControlName="Nacion">
+                                <mat-option  value="Peru">
+                                    959 - Peru
+                                </mat-option>
+                                <mat-option  value="Chile">
+                                    475 - Chile
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-10_input" style="margin-bottom: 1%;" >
+                                <label class="descrip" for="tipAnex">Telefono 1:</label>
+                            <mat-form-field class="input">
+                                <input  type="text" (value)="anexo.al_telf1" formControlName="Telef1" maxlength="9"  matInput placeholder="">
+                            </mat-form-field>
+                    </div>
+                    <div class="col-lg-10_input" style="margin-bottom: 1%;" >
+                            <label class="descrip" for="tipAnex">Telefono 2:</label>
+                        <mat-form-field class="input">
+                            <input  type="text" (value)="anexo.al_telf2" formControlName="Telef2" maxlength="9"  matInput placeholder="">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-10_input" style="margin-bottom: 1%;" >
+                            <label class="descrip" for="tipAnex">Correo:</label>
+                        <mat-form-field class="input">
+                            <input  type="email" (value)="anexo.al_email" maxlength="100" formControlName="Email" matInput placeholder="">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-10_input" style="margin-bottom: 1%;" >
+                        <label class="descrip" for="tipAnex">Pagina WEB:</label>
+                    <mat-form-field class="input">
+                        <input  type="text" maxlength="100" (value)="anexo.al_host" formControlName="Host" matInput placeholder="">
+                    </mat-form-field>
+                    </div>
+                    <div class="col-lg-10_input" style="margin-bottom: 1%;" >
+                        <label class="descrip" for="tipAnex">Contacto:</label>
+                    <mat-form-field class="input">
+                        <input  type="text" maxlength="40" (value)="anexo.al_host" formControlName="RepreLeg" matInput placeholder="">
+                    </mat-form-field>
+                    </div>
+                    <div class="col-lg-10_input" style="margin-bottom: 1%;" >
+                        <label class="descrip" for="tipAnex">Cargo:</label>
+                    <mat-form-field class="input">
+                        <input  type="text" maxlength="40" (value)="anexo.al_carleg" formControlName="CargLeg" matInput placeholder="">
+                    </mat-form-field>
+                    </div>
+                </div>
+                <div class="Caja4">
+                    <div class="col-lg-10_select" >
+                        <label class="descrip"  for="tipAnex">Detracción:</label>
+                        <mat-form-field>
+                            <mat-select [(value)]="TipDet"  formControlName="TipDetracc" class="select">
+                                <mat-option  value="959">
+                                    959 - Detracción1
+                                </mat-option>
+                                <mat-option  value="475">
+                                    475 - Detracción2
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div> 
+                    <div class="col-lg-10_input" style="margin-bottom: 1%;" >
+                        <label class="descrip" for="tipAnex">Nro. Cuenta de Detracción:</label>
+                    <mat-form-field class="input">
+                        <input  type="text" maxlength="40" (value)="anexo.al_numdetr" formControlName="NumDetrac" matInput placeholder="">
+                    </mat-form-field>
+                    </div>
+                    
+                    <div class="col-lg-10_input" style="margin-bottom: 1%;" >
+                        <label class="descrip" for="tipAnex">Estado del contribuyente:</label>
+                    <mat-form-field class="input">
+                        <input  type="text" maxlength="40" (value)="anexo.al_estcon" formControlName="EstContri" matInput placeholder="">
+                    </mat-form-field>
+                    </div> 
+                    <div class="col-lg-10_input" style="margin-bottom: 1%;" >
+                        <label class="descrip" for="tipAnex">Condicion del contribuyendo:</label>
+                    <mat-form-field class="input">
+                        <input  type="text" maxlength="40" (value)="anexo.al_cndcon" formControlName="CondContri" matInput placeholder="">
+                    </mat-form-field>
+                    </div>  
+
+
+
+
+
+                </div>
+            
+                <div class="dos">
+                    <button class=" btn btn-success" *ngIf="!Boton" (click)="operar()" ><i class="fas fa-save"></i></button>
+                    <button type="button" class=" btn btn-danger" (click)="cerrar()"><i
+                            class="fas fa-long-arrow-alt-left"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

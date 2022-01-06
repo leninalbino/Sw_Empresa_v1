@@ -1,0 +1,209 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.card-body{
+  width: 100%;
+}
+
+*{
+    width: 100%;
+}
+
+.dos{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-left: 8%;
+   /* background-color: blueviolet;
+   color: brown; */
+}
+.dos .mat-form-field{
+  width: 100%;
+}
+.dos li {
+ list-style:none;
+ all: none;
+}
+
+.caja-texto{
+  display: flex;
+  flex-direction: row;
+}
+
+.caja-texto p{
+  margin-top: 20px;
+  margin-left: 0px;
+  width: 50%;
+}
+
+button{
+  width: 20%;
+  height: 20%;
+}
+
+.caja-texto-compuesta{
+  display: inline-block;
+}
+
+.caja-texto-compuesta p{
+  width: 50%;
+}
+
+.caja-texto-compuesta input{
+  width: 20%;
+}
+
+.input-cuenta{
+  width: 30%;
+}
+
+.caja-input{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#buscar-cuenta{
+  margin-top: 20px;
+  margin-left: 15px;
+  font-size: 18px;
+  width: 20%;
+}
+
+.descri-cuenta{
+  width: 50%;
+}
+
+.valida-campo{
+  display: block;
+  margin-top: 0;
+}
+
+.valida-campo p{
+  color: red;
+  font-size: 12px;
+
+}
+
+.texto-valida{
+  display: flex ;
+  flex-direction: row ;
+  justify-content: flex-start ;
+}
+
+.campo1{
+  display: inline-block;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 13%;
+  width: 30%;
+  min-width:80px;
+}
+.campo2{
+  display: inline-block;
+  align-items: center;
+  justify-content: space-around;
+  width: 240px;
+  margin-left: 20px;
+  text-align: center;
+
+}
+.title{
+  text-align: center;
+}
+.btnNuevo{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 10px;
+  margin-left: 40%;
+
+}
+
+.secu{
+  display: inline-block;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 13%;
+  margin-top: 10px;
+  width: 30%;
+  min-width:80px;
+}
+
+#opera{
+  width: 240px;
+  margin-left: 190px;
+  margin-top: -70px;
+}
+.saldar{
+  align-items: center;
+  justify-content: space-around;
+  min-width: 80px;
+  width: 30%;
+  margin-left: 13%;
+  margin-top: -12px;
+}
+#impu{
+  align-items: center;
+  justify-content: space-around;
+  width: 240px;
+  margin-left: 190px;
+  margin-top:-71px ;
+}
+.trans{
+  align-items: center;
+  justify-content: space-around;
+  min-width: 80px;
+  width: 30%;
+  margin-left: 13%;
+  margin-top: -12px;
+}
+#ejer{
+  align-items: center;
+  justify-content: space-around;
+  min-width: 80px;
+  width: 240px;
+  margin-left: 190px;
+  margin-top:-71px ;
+}
+.dos{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+
+   /* background-color: blueviolet;
+   color: brown; */
+}
+.dos .mat-form-field{
+  width: 100%;
+}
+.dos li {
+ list-style:none;
+ all: none;
+}
+.btn{
+  margin-left: -2px;
+}
+
+
+
+
+
+

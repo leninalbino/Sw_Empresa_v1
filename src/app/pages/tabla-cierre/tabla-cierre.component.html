@@ -1,0 +1,81 @@
+<div class="card">
+  <h3 class="card-header">Mantenimiento Tabla de Cierre</h3>
+  <div class="card-body">
+    <!-- botones -->
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-12 col-sm-6 d-flex justify-content-start ">
+        </div>
+        <div class="col-12 col-sm-6 buscar d-flex justify-content-end">
+          <mat-icon>search</mat-icon>
+          <mat-form-field>
+            <input matInput (keyup)="filtrar($event)" placeholder="Buscar " #input>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <!-- tabla -->
+    <mat-table class="table-responsive" [dataSource]="dataSource" matSort >
+      <ng-container matColumnDef="cl_asien">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          <h3>Codigo</h3>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"><span class="mobile-label"></span>
+          {{row.cl_asien}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cl_descr">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            <h3>Descripcion</h3>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"><span class="mobile-label"></span>
+            {{row.cl_descr}} </mat-cell>
+        </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef>
+          <h3>Acciones</h3>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <span class="mobile-label"></span>
+
+          <button mat-button (click)="abrirDialogo(row)" >
+            <mat-icon   >edit</mat-icon>
+          </button>
+          <button mat-button class="consultar" (click)="abrirDialogoVista(row)" >
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-button style="color: rgb(255, 38, 0);" (click)="eliminar(row)" >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No se encontraron resultados para "{{input.value}}"</td>
+      </tr>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[15]"></mat-paginator>
+
+    <button mat-fab  (click)="abrirDialogo()"  style="float: right; margin-right: 20px; background-color: dodgerblue;">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-fab style="float: left; margin-left: 20px ; background-color: red;">
+      <mat-icon>keyboard_return</mat-icon>
+
+    </button>
+
+    <!-- <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+    <button type="button" class="btn btn-link">Link</button>
+-->
+  </div>
+  </div>

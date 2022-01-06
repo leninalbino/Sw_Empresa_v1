@@ -1,0 +1,91 @@
+
+<div class="card">
+  <div class="card-header">
+      Vista
+    </div>
+  <div class="card-body">
+      <form [formGroup]="" >
+ <!-- botones -->
+ <div class="container text-center">
+  <div class="row">
+    <div class="col-12 col-sm-6 d-flex justify-content-start ">
+    </div>
+    <div class="col-12 col-sm-6 buscar d-flex justify-content-end">
+      <mat-icon>search</mat-icon>
+      <mat-form-field>
+        <input matInput (keyup)="filtrar($event)" placeholder="Buscar " #input>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
+
+<!-- iniciovformulario-->
+<!-- tabla -->
+<div>
+<mat-table class="table-responsive" [dataSource]="dataSourceDetVista" matSort >
+  <ng-container matColumnDef="dl_secue">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>
+      <h3>Secuencia</h3>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row"><span class="mobile-label"></span>
+      {{row[0]}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="dl_tipope">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        <h3>Operación</h3>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row"><span class="mobile-label"></span>
+        {{row[1]}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dl_ctasal">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        <h3>Cuenta A Saldar</h3>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row"><span class="mobile-label"></span>
+        {{row[2]}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dl_ctatra">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        <h3>Cuenta A Transferir</h3>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row"><span class="mobile-label"></span>
+       {{ row[3] }}</mat-cell>
+    </ng-container>
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No se encontraron resultados para  "{{input.value}}"</td>
+  </tr>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;">
+  </mat-row>
+</mat-table>
+<!-- Fin formulario-->
+</div>
+
+
+          <div class="dos">
+              <ul>
+                  <p><strong>Creación:</strong></p>
+                  <li>Usuario: {{datosNuevos[0].dl_usuacre}}</li>
+                  <li>Fecha: {{datosNuevos[0].dl_feccrea | date:'d/M/yyyy'}}</li>
+                  <li>Hora: {{datosNuevos[0].l_hracrea}}</li>
+              </ul>
+              <ul>
+                  <p><strong>Actualización:</strong></p>
+                  <li>Usuario:{{datosNuevos[0].cl_usract}}</li>
+                  <li>Fecha: {{datosNuevos[0].cl_fecact | date:'d/M/yyyy'}}</li>
+                  <li>Hora: {{datosNuevos[0].cl_hraact}}</li>
+              </ul>
+
+          </div>
+
+          <div class="dos btn">
+            <button type="button" class=" btn btn-danger" (click)="cerrar()"><i class="fas fa-long-arrow-alt-left"></i></button>
+        </div>
+
+      </form>
+  </div>
+</div>

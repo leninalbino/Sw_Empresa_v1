@@ -1,0 +1,14 @@
+<div>
+    <mat-form-field>
+        <input matInput placeholder="Nombres" [(ngModel)]="medico.pkID.tl_clave">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Apellidos" [(ngModel)]="medico.tl_descri">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="CMP" [(ngModel)]="medico.tl_descri2" max="15" maxlength="15" type="number">
+    </mat-form-field>
+    
+</div>
+<button mat-raised-button color="primary" (click)="operar()">Aceptar</button>
+<button mat-raised-button color="accent" (click)="cerrar()">Cancelar</button>

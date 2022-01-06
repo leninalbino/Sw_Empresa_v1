@@ -1,0 +1,89 @@
+
+<div class="card">
+  <div class="card-header">
+      Editar
+    </div>
+  <div class="card-body">
+      <form [formGroup]="form" (submit)="operar()">
+
+          <div class="campo">
+            <mat-form-field appearance="fill">
+                <mat-label>Codigo de caja</mat-label>
+                <input matInput disabled=true value="{{datosNuevos[0].bl_codbco}}">
+            </mat-form-field>
+          </div>
+          
+          <div class="campo">
+              <mat-form-field appearance="fill">
+                <mat-label>Descripcion de caja</mat-label>
+                  <input matInput class="text" formControlName="desc_caja" value="{{datosNuevos[0].bl_nombco}}">
+              </mat-form-field>
+              <div *ngIf="descripcionCajaValida" class="valida-campo">
+                <div class="texto-valida">
+                    <i class="fas fa-exclamation-triangle" style="color: red;">
+                      <span style="color: red; font-size: 12px;"> Descripcion de caja es requerido.</span>
+                    </i>
+              </div>
+              </div>
+          </div>
+          
+
+          <div class="campo">
+            <mat-form-field appearance="fill" >
+                <mat-label>{{datosNuevos[0].bl_tipmon}} - {{datosNuevos2[2]}}</mat-label>
+                <mat-select  formControlName="tipo_moneda">
+                  <mat-option  select value="1" *ngFor="let op of datosCombo" [value]="op.pkID.tl_clave">{{op.pkID.tl_clave}} - {{op.tl_descri}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div *ngIf="tipoMonedaCajaValida" class="valida-campo">
+                <div class="texto-valida">
+                    <i class="fas fa-exclamation-triangle" style="color: red;">
+                      <span style="color: red; font-size: 12px;">Tipo de Moneda es requerido.</span>
+                    </i>
+              </div>
+              </div>
+        </div>
+
+        <div class="campo">
+            <div class="caja-input">
+                <mat-form-field appearance="fill" class="input-cuenta">
+                    <mat-label>Cuenta contable</mat-label>
+                    <input matInput formControlName="cuenta" placeholder="Cuenta"value="{{datosNuevos[0].bl_cuenta}}">
+                </mat-form-field>
+                <i class="fas fa-search" id="buscar-cuenta" (click)="abrirModalCuenta($event)"></i>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Descripcion</mat-label>
+                    <input matInput class="descrip-cuenta" disabled>
+                    </mat-form-field>
+            </div>
+            <div *ngIf="cuentaCajaValida" class="valida-campo">
+                <div class="texto-valida">
+                    <i class="fas fa-exclamation-triangle" style="color: red;">
+                      <span style="color: red; font-size: 12px;"> Cuenta contable es requerido.</span>
+                    </i>
+              </div>
+              </div>
+        </div>
+
+          <div class="dos">
+              <ul>
+                  <p><strong>Creación:</strong></p>
+                  <li>Usuario: {{datosNuevos[0].bl_usrcrea}}</li>
+                  <li>Fecha: {{datosNuevos[0].bl_feccrea | date:'d/M/yyyy'}}</li>
+                  <li>Hora: {{datosNuevos[0].bl_hracrea}}</li>
+              </ul>
+              <ul>
+                  <p><strong>Actualización:</strong></p>
+                  <li>Usuario:{{datosNuevos[0].bl_usract}}</li>
+                  <li>Fecha: {{datosNuevos[0].bl_fecact | date:'d/M/yyyy'}}</li>
+                  <li>Hora: {{datosNuevos[0].bl_hraact}}</li>
+              </ul>
+      
+          </div>
+          <div class="dos">
+              <button type="submit" class=" btn btn-success"><i class="fas fa-save"></i></button>
+              <button type="button" class=" btn btn-danger" (click)="cerrar()"><i class="fas fa-long-arrow-alt-left"></i></button>
+          </div>
+      </form>
+  </div>
+</div>

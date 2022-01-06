@@ -1,0 +1,48 @@
+
+<div class="card">
+    <div class="card-header">
+        Ver
+      </div>
+    <div class="card-body">
+        <form >
+            <div class="dos comobo">
+                <mat-form-field appearance="fill" >
+                    <mat-label>{{datosNuevos2[0]}} {{datosNuevos2[1]}}</mat-label>
+                    <mat-select disableRipple disabled=true>
+                      <mat-option select value="1">{{datosNuevos2[0]}} {{datosNuevos2[1]}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <!-- <div class="dos">
+                <mat-form-field>
+                    <input class="text" formControlName="tex_nl_subdia" matInput placeholder="Numero Actual">
+                </mat-form-field>
+                
+            </div> -->
+            <div class="dos">
+                <mat-form-field>
+                    <input matInput disabled=true placeholder="Ultimo numero Real" value="{{datosNuevos[0].nl_nume}}">
+                </mat-form-field>
+            </div>
+            <div class="dos">
+                <ul>
+                    <p><small>Creación</small></p>
+                    <li>usuario: {{datosNuevos[0].nl_usrcrea}}</li>
+                    <li>Fecha: {{datosNuevos[0].nl_feccrea}}</li>
+                    <li>Hora: {{datosNuevos[0].nl_hracrea}}</li>
+                </ul>
+                <ul>
+                    <p><small>Actualización</small></p>
+                    <li>usuario:{{datosNuevos[0].nl_usract}}</li>
+                    <li>Fecha: {{datosNuevos[0].nl_fecact}}</li>
+                    <li>Hora: {{datosNuevos[0].nl_hraact}}</li>
+                </ul>
+        
+            </div>
+            <div class="dos">
+                <!-- <button type="submit" class=" btn btn-success"><i class="fas fa-save"></i></button> -->
+                <button type="button" class=" btn btn-danger" (click)="cerrar()"><i class="fas fa-long-arrow-alt-left"></i></button>
+            </div>
+        </form>
+    </div>
+</div>

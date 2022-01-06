@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 17%;
+  }
+
+  .search{
+    float: right;
+    width: 20%;
+  }
+
+  .botones{
+    margin: 0 auto;
+  }

@@ -1,0 +1,104 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .formulario{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+  }
+
+  .card-body{
+    width: 100%;
+  }
+
+  *{
+      width: 100%;
+  }
+
+  .dos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+     /* background-color: blueviolet;
+     color: brown; */
+}
+.dos .mat-form-field{
+    width: 100%;
+}
+.dos li {
+   list-style:none;
+   all: none;
+}
+
+.caja-texto{
+    display: flex;
+    flex-direction: row;
+}
+
+.caja-texto p{
+    margin-top: 20px;
+    margin-left: 0px;
+    width: 50%;
+}
+
+button{
+    width: 20%;
+    height: 20%;
+}
+
+.input-cuenta{
+    width: 40%;
+}
+
+.caja-input{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#buscar-cuenta{
+    margin-top: 20px;
+    margin-left: 15px;
+    font-size: 18px;
+    width: 15%;
+    cursor: pointer;
+}
+
+.descri-cuenta{
+    width: 80%;
+}
+
+.valida-campo{
+    display: block;
+    margin-top: 0;
+}
+
+.valida-campo p{
+    color: red;
+    font-size: 12px;
+    
+}
+
+.texto-valida{
+    display: flex ;
+    flex-direction: row ;
+    justify-content: flex-start ;
+}
+
+.campo{
+    display: inline-block;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 0;
+    margin-top: 5%;
+}
+
+
+
+  

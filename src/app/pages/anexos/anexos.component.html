@@ -1,0 +1,115 @@
+<div class="card">
+    <h3 class="card-header">Tabla de Anexos</h3>
+    <div class="card-body">
+      <!-- botones -->
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-12 col-sm-6 d-flex justify-content-start ">
+          </div>
+          <div class="col-12 col-sm-6 buscar d-flex justify-content-end">
+            <mat-icon>search</mat-icon>
+            <mat-form-field>
+              <input matInput (keyup)="filtrar($event)" placeholder="Buscar ">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <!-- tabla -->
+      <mat-table class="table-responsive" [dataSource]="dataSource" matSort >
+        <ng-container matColumnDef="Tipo">
+          <mat-header-cell *matHeaderCellDef mat-sort-header >
+            <h3>Tipo</h3>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"><span class="mobile-label">Tipo:</span>
+            {{row.pkID.al_tipanex}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Anexo">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <h3>Anexo</h3>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row"><span class="mobile-label">Anexo:</span>
+              {{row.pkID.al_codanex}} </mat-cell>
+          </ng-container>
+
+        <ng-container matColumnDef="Descripción de anexo">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            <h3>Descripción de anexo</h3>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row" >
+            <span class="mobile-label">Descripción de anexo:</span>
+            {{row.al_razsoc}}
+          </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="Tip. Doc.">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <h3>Tip. Doc.</h3>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <span class="mobile-label">Tip. Doc.:</span>
+              {{row.al_tipdocide}}
+            </mat-cell>
+          </ng-container>
+        <ng-container matColumnDef="Nro. Doc">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <h3>Nro. Doc</h3>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <span class="mobile-label">Nro. Doc:</span>
+              {{row.al_nrodocide}}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="Estado">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <h3>Estado</h3>
+            </mat-header-cell>
+            <mat-cell  *matCellDef="let row">
+              <span  class="mobile-label">Estado:</span>
+              {{row.al_estado}}
+            </mat-cell>
+          </ng-container>
+        
+  
+        <ng-container matColumnDef="acciones">
+          <mat-header-cell *matHeaderCellDef>
+            <h3>Acciones</h3>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="mobile-label">Acciones:</span>
+  
+            <button mat-button (click)="abrirDialogo(row)" >
+              <mat-icon   >edit</mat-icon>
+            </button>
+            <button mat-button class="consultar" (click)="abrirDialogoView(row)" >
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <button mat-button style="color: rgb(255, 38, 0);" (click)="eliminar(row)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[15]"></mat-paginator>
+      <button mat-fab (click)="abrirDialogoNuevo()"  style="float: right; margin-right: 20px; background-color: dodgerblue;">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button mat-fab style="float: left; margin-left: 20px ; background-color: red;">
+        <mat-icon>keyboard_return</mat-icon>
+          
+      </button>
+      <!-- <button type="button" class="btn btn-primary">Primary</button>
+      <button type="button" class="btn btn-secondary">Secondary</button>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-danger">Danger</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-light">Light</button>
+      <button type="button" class="btn btn-dark">Dark</button>
+      <button type="button" class="btn btn-link">Link</button> -->
+  
+    </div>
+  </div>

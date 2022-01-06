@@ -1,0 +1,68 @@
+<div class="card">
+    <div class="card-header">
+        Nuevo
+    </div>
+    <div class="card-body">
+        <div>
+            <form [formGroup]="form" (submit)="operar()">
+                <div class="dos comobo">
+                    <mat-form-field>
+                        <mat-select placeholder="Subdiario" [(value)]="seleccionada" formControlName="subdiario">
+                            <mat-option *ngFor="let op of datosCombo" [value]="op.pkID.tl_clave">
+                                {{op.tl_descri}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
+
+
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Assignee</mat-label>
+                        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option.tl_descri}}
+                          </mat-option>
+                        </mat-autocomplete>
+                      </mat-form-field>
+
+                    <!-- <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Number</mat-label>
+                        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
+                            [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions[0] | async" [value]="option.tl_descri">
+                                {{option.tl_descri}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field> -->
+                    <!-- <mat-form-field  >
+                        <mat-label>Subdiario</mat-label>
+                        <mat-select disableRippleng >
+                          <mat-option  selected value="{{datosCombo[0].tl_descri}}">{{datosCombo[0].tl_descri}}</mat-option>
+                        </mat-select>
+                      </mat-form-field> -->
+                </div>
+                <div class="dos">
+                    <mat-form-field>
+                        <input formControlName="tex_nl_subdia" matInput placeholder="Ultimo numero Real">
+                    </mat-form-field>
+                </div>
+                <div class="dos">
+                    <ul>
+                        <p><small>Creación</small></p>
+                        <li>usuario:</li>
+                        <li>Fecha: {{date.getFullYear()+"/"+date.getMonth()+"/"+date.getDay()}}</li>
+                        <li>Hora: {{date.getHours()+":"+date.getMinutes()+":"+date.getMinutes()}}</li>
+                    </ul>
+                </div>
+                <div class="dos">
+                    <button class=" btn btn-success"><i class="fas fa-save"></i></button>
+                    <button type="button" class=" btn btn-danger" (click)="cerrar()"><i
+                            class="fas fa-long-arrow-alt-left"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

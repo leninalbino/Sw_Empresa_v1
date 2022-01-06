@@ -1,0 +1,39 @@
+
+<h3 class="card-header">Cuentas contables</h3>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="table-responsive" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="cuenta">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
+      <td mat-cell *matCellDef="let row"> {{row.pl_cuenta}} </td>
+    </ng-container>
+
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </th>
+      <td mat-cell *matCellDef="let row"> {{row.pl_descri}} </td>
+    </ng-container>
+
+
+
+    <!-- Fruit Column -->
+    <ng-container matColumnDef="seleccionar">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+      <td mat-cell *matCellDef="let row" class="botones">
+          <mat-checkbox></mat-checkbox>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <!-- <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td> 
+    </tr> -->
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
